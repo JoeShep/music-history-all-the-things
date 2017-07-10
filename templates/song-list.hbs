@@ -1,0 +1,16 @@
+<div class="uiContainer__song-list box col s12">
+  <ul class="song-list">
+    {{#each songs}}
+      <li class="song-list__item">
+        <span class="song-title"}>{{title}}</span>
+        <ul class="song-list__item--data">
+          <li>{{artist}}</li>
+          <li>{{album}}</li>
+          <li>{{year}}</li>
+        </ul>
+        <a href="#" data-edit-id="{{id}}" class="edit-btn waves-effect waves-light btn">edit</a>
+        <a href="#" data-delete-id="{{id}}" class="delete-btn waves-effect waves-light btn">delete</a>
+      </li>
+    {{/each}}
+  </ul>
+</div>
