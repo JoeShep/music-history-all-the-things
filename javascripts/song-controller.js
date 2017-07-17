@@ -63,6 +63,18 @@ module.exports.activateEvents = () => {
       module.exports.loadSongsToDom();
     });
   });
+
+  $(document).on("click", ".delete-btn", function() {
+    let songId = $(this).data("delete-id");
+    db.deleteSong(songId)
+    .then( (song) => {
+      console.log("songDeleted", song );
+      module.exports.loadSongsToDom();
+    })
+    .catch( (err) => {
+      console.log("Song could not be deleted", err.statusText);
+    });
+  });
 };
 
 

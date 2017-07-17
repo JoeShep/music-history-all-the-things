@@ -9,6 +9,7 @@ module.exports.makeSongList = (songList) => {
 };
 
 module.exports.buildSongForm = (song) => {
+  console.log("song?", song);
   let songItem = {
     title: "",
     artist: "",
@@ -20,6 +21,6 @@ module.exports.buildSongForm = (song) => {
   };
 
   let songData = song || songItem;
-  return formTemplate(song);
+  return formTemplate(songData);
 };
 
