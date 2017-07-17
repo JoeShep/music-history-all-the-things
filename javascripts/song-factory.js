@@ -13,7 +13,7 @@ function addIds(songData) {
   return songData;
 }
 
-function getSongs() {
+module.exports.getSongs = () => {
   return new Promise( ( resolve, reject) => {
     $.ajax({
       url: `${fbURL}/songs.json`//<.json is important!
@@ -23,7 +23,52 @@ function getSongs() {
       resolve(amendedSongData);
     });
   });
-}
+};
 
-module.exports = {getSongs};
+module.exports.getSong = (songId) => {
+  return new Promise( (resolve, reject) => {
+    $.ajax({
+      url: `${fbURL}/songs/${songId}.json`
+    }).done( (songData) => {
+      resolve(songData);
+    });
+  });
+};
+
+module.exports.addSong = (songFormObj) => {
+  return new Promise( (resolve, reject) => {
+    $.ajax({
+      url: `${fbURL}/songs.json`,
+      type: "POST",
+      data: JSON.stringify(songFormObj),
+      dataType: "json"
+    }).done( (songId) => {
+      resolve(songId);
+    });
+  });
+};
+
+module.exports.saveEditedSong = (songObj, songId) => {
+  return new Promise( (resolve, reject) => {
+    $.ajax({
+      url: `${fbURL}/songs/${songId}.json`,
+      type: "PUT",
+      data: JSON.stringify(songObj),
+      dataType: "json"
+    }).done( (songData) => {
+      resolve(songData);
+    });
+  });
+};
+
+
+
+
+
+
+
+
+
+
+
 

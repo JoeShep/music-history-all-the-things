@@ -1,0 +1,18 @@
+{{#if header}}
+  <h3>{{header}}</h3>
+{{else}}
+  <h3>Edit Song</h3>
+{{/if}}
+
+<input type="text" id="form--title" placeholder="title" value="{{title}}"></input>
+<input type="text" id="form--artist" placeholder="artist" value="{{artist}}"></input>
+<input type="text" id="form--album" placeholder="album" value="{{album}}"></input>
+<input type="text" id="form--year" placeholder="year" value="{{year}}"></input>
+
+<button id={{id}} {{#if btnClass}}class={{btnClass}}{{else}}class="save_edit_btn"{{/if}}>
+{{#if btnText}}
+  {{btnText}}
+{{else}}
+  Save Edits
+{{/if}}
+</button>
